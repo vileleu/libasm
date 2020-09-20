@@ -3,16 +3,37 @@ section .text
 
 _ft_strcmp:
 	mov rcx, -1
-	mov dl, 0
+	mov dh, 0
+	jmp boucle
 
 boucle:
 	inc rcx
-	mov dl, BYTE [rsi + rcx]
-	cmp BYTE [rdi + rcx], dl
+	mov dh, BYTE [rsi + rcx]
+	cmp BYTE [rdi + rcx], dh
 	je bouclebis
-	mov dl, BYTE [rdi + rcx]
-	sub dl, BYTE [rsi + rcx]
-	cmp dl, 0
+	mov dh, BYTE [rdi + rcx]
+	mov ch, BYTE [rsi + rcx]
+	cmp dh, 0
+	jl absol
+	cmp ch, 0
+	jl abso
+	jmp verif
+
+absol:
+	cmp ch, 0
+	jl verif
+	neg dh
+	jmp verif
+
+
+
+abso:
+	neg ch
+	jmp verif
+
+verif:
+	sub dh, ch
+	cmp dh, 0
 	jg plus
 	jl moins
 	mov rax, 0

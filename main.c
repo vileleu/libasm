@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -14,13 +15,14 @@ char	*ft_strdup(const char *s);
 
 int		main()
 {
-	char	s1[] = "sah";
-	char	s2[] = "sah";
-	char	src[] = "cargo";
-	char	dest[] = "allayaya";
+	char	s1[] = "\xff\xff";
+	char	s2[] = "\xff";
+	char	src[] = "\xff\xff";
+	char	dest[] = "\xff    ";
 	char	str[BUF + 1];
 	int		nb;
 	int		fd;
+	char	t = '/xff';
 
 	nb = 0;
 	nb = ft_strlen(src);
@@ -29,7 +31,9 @@ int		main()
 	printf("----ft_strcpy----\ndest = %s, src = %s\n", dest, src);
 	ft_strcpy(dest, src);
 	printf("dest = %s, src = %s\n\n", dest, src);
+	printf("%d\n", t);
 	printf("----ft_strcmp----\n%d\n\n", ft_strcmp(s1, s2));
+	printf("----strcmp----\n%d\n\n", strcmp(s1, s2));
 	printf("----ft_strdup----\n%s\n\n", ft_strdup(dest));
 	fd = open("test.txt", O_RDWR | O_APPEND);
 	printf("----ft_read----\n");
