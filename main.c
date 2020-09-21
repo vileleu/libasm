@@ -13,16 +13,15 @@ ssize_t	ft_write(int fd, const void *buf, size_t count);
 ssize_t	ft_read(int fd, void *buf, size_t count);
 char	*ft_strdup(const char *s);
 
-int		main()
+int		main(void)
 {
-	char	s1[] = "\xff\xff";
-	char	s2[] = "\xff";
-	char	src[] = "\xff\xff";
-	char	dest[] = "\xff    ";
+	char	s1[] = "cargo";
+	char	s2[] = "maquereux";
+	char	src[] = "allay";
+	char	dest[] = "no   ";
 	char	str[BUF + 1];
 	int		nb;
 	int		fd;
-	char	t = '/xff';
 
 	nb = 0;
 	nb = ft_strlen(src);
@@ -31,7 +30,6 @@ int		main()
 	printf("----ft_strcpy----\ndest = %s, src = %s\n", dest, src);
 	ft_strcpy(dest, src);
 	printf("dest = %s, src = %s\n\n", dest, src);
-	printf("%d\n", t);
 	printf("----ft_strcmp----\n%d\n\n", ft_strcmp(s1, s2));
 	printf("----strcmp----\n%d\n\n", strcmp(s1, s2));
 	printf("----ft_strdup----\n%s\n\n", ft_strdup(dest));

@@ -14,22 +14,28 @@ boucle:
 	mov dh, BYTE [rdi + rcx]
 	mov ch, BYTE [rsi + rcx]
 	cmp dh, 0
-	jl absol
+	je test
 	cmp ch, 0
-	jl abso
+	je testt
 	jmp verif
 
-absol:
+test:
 	cmp ch, 0
-	jl verif
-	neg dh
+	jl ok
 	jmp verif
 
-
-
-abso:
+ok:
 	neg ch
 	jmp verif
+
+testt:
+	cmp dh, 0
+	jl okk
+	jmp verif
+
+okk:
+	neg dh
+	jmp verif	
 
 verif:
 	sub dh, ch
